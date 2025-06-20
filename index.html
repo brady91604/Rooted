@@ -1,105 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Local Small Business Finder&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; margin: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>label, select, input { margin: 5px 0; display: block; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.business { border: 1px solid #ccc; padding: 10px; margin-top: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Find Small Businesses Near You&lt;/h1&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="address"&gt;Enter Your Address:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;input id="address" type="text" placeholder="123 Main St, City, State" /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;label&gt;Category:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;select id="category"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value=""&gt;--All--&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="home"&gt;Home&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="grocery"&gt;Grocery&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="furniture"&gt;Furniture&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="lifestyle"&gt;Lifestyle&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="selfcare"&gt;Self Care&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;label&gt;Price Range:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;select id="price"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value=""&gt;--All--&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="$"&gt;$&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="$$"&gt;$$&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="$$$"&gt;$$$&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;label for="product"&gt;Search Product:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;input id="product" type="text" placeholder="e.g. candles, chairs" /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="searchBusinesses()"&gt;Search&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Results:&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="results"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Mock data: list of small businesses</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const businesses = [</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ name: "Cozy Home Store", category: "home", price: "$$", products: ["furniture", "decor"], address: "100 Main St" },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ name: "Fresh Grocery", category: "grocery", price: "$", products: ["vegetables", "fruits"], address: "200 Market Rd" },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ name: "Lifestyle Boutique", category: "lifestyle", price: "$$$", products: ["clothing", "jewelry"], address: "300 Fashion Ave" },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ name: "Self Care Spa", category: "selfcare", price: "$$", products: ["massage", "skincare"], address: "400 Wellness Blvd" },</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ name: "Furniture Factory", category: "furniture", price: "$$$", products: ["chairs", "tables"], address: "500 Industrial Park" },</p>
-<p class="p1"><span class="Apple-converted-space">  </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function searchBusinesses() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const category = document.getElementById("category").value.toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const price = document.getElementById("price").value;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const product = document.getElementById("product").value.toLowerCase();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>let filtered = businesses.filter(biz =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>let matchesCategory = category ? biz.category === category : true;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>let matchesPrice = price ? biz.price === price : true;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>let matchesProduct = product ? biz.products.some(p =&gt; p.includes(product)) : true;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return matchesCategory &amp;&amp; matchesPrice &amp;&amp; matchesProduct;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const resultsDiv = document.getElementById("results");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>resultsDiv.innerHTML = "";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (filtered.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>resultsDiv.innerHTML = "&lt;p&gt;No businesses found.&lt;/p&gt;";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>filtered.forEach(biz =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const div = document.createElement("div");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>div.classList.add("business");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>div.innerHTML = `&lt;strong&gt;${biz.name}&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                       </span>Category: ${biz.category}&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                       </span>Price: ${biz.price}&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                       </span>Products: ${biz.products.join(", ")}&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                       </span>Address: ${biz.address}`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>resultsDiv.appendChild(div);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+<style>.hljs-string{color:#C3E88C;}.hljs-attr{color:#C691E9;}.hljs-number{color:#FF9CAC;}.hljs-doctag{color:#C691E9;}.hljs-symbol{color:#82AAFF;}.hljs-emphasis{font-style:italic;}.hljs-name{color:#C691E9;}.hljs-regexp{color:#82AAFF;}.hljs-selector-pseudo{color:#82AAFF;}.hljs-code{color:#82AAFF;}.hljs-link{color:#82AAFF;}.hljs-built_in{color:#82AAFF;}.hljs-function{color:#82AAFF;}.hljs-variable{color:#82AAFF;}.hljs-selector-class{color:#C3E88C;}.hljs-section{font-weight:bold;color:#71F1FB;}.hljs-deletion{color:#C3E88C;}.hljs-quote{color:#C3E88C;}.hljs-keyword{color:#C691E9;}.hljs-addition{color:#82AAFF;}.hljs-comment{color:#464B5D;}.hljs-subst{color:#BFBBCD;}.hljs{overflow-x:auto;padding:0.5em;color:#BFBBCD;display:block;}.hljs-meta{color:#C691E9;}.hljs-type{color:#FFCA6B;}.hljs-strong{font-weight:bold;}.hljs-template-tag{color:#C3E88C;}.hljs-attribute{color:#82AAFF;}.hljs-selector-attr{color:#82AAFF;}.hljs-meta-keyword{color:#FFCA6B;}.hljs-selector-tag{color:#C691E9;}.hljs-selector-id{color:#C3E88C;}.hljs-bullet{color:#82AAFF;}.hljs-title{font-weight:bold;color:#71F1FB;}.hljs-template-variable{color:#82AAFF;}.hljs-literal{color:#82AAFF;}</style><pre><code class="hljs" style="background:#0F111A;border-radius:8px">&lt;!<span class="hljs-type">DOCTYPE</span> html&gt;
+&lt;html lang=<span class="hljs-string">"en"</span>&gt;
+&lt;head&gt;
+  &lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;
+  &lt;title&gt;<span class="hljs-type">Rooted</span> <span class="hljs-type">App</span>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;<span class="hljs-type">Welcome</span> to <span class="hljs-type">Rooted!</span>&lt;/h1&gt;
+  &lt;p&gt;<span class="hljs-type">This</span> <span class="hljs-keyword">is</span> your small business directory app.<span class="hljs-attribute"></span>&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
